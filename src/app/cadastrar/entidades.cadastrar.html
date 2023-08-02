@@ -1,0 +1,96 @@
+
+<!--
+<A routerLink="../">INICIO</A> <br>
+
+<p>TELA DE CADASTRO PARA AS ENTIDADES</p>
+-->
+
+<form>
+    <input
+        type="text"
+        placeholder="Razão Social"
+        class="form-control"
+        name="Razão Social"
+        [(ngModel)]="Entidade.razaosocial">
+
+            
+        <select class="form-control" name="Setor" [(ngModel)]="Entidade.setor">
+            <option value="" disabled selected> Setor </option>
+            <option *ngFor="let setor of setores" [value]="setor">{{setor}}</option>
+          </select>
+          
+        <select class="form-control" name="Dre" [(ngModel)]="Entidade.dre">
+            <option value="" disabled selected> Dre </option>
+            <option *ngFor="let dre of dres" [value]="dre">{{dre}}</option>
+          </select>
+    <td></td>
+
+    <input
+        type="text2"
+        placeholder="Informações adicionais"
+        class="form-control"
+        name="infad"
+        [(ngModel)]="Entidade.infad">
+
+    <input
+        type="button"
+        value="Cadastrar"
+        *ngIf="btnCadastro"        
+        class="btn btn-primary"
+        (click)="cadastrar()">
+    
+    <input
+        type="button"
+        value="Buscar"
+        *ngIf="btnCadastro"       
+        class="btn btn-primary"
+        (click)="buscar()">
+    
+    <input
+        type="button"
+        value="Alterar"
+        *ngIf="!btnCadastro"        
+        class="btn btn-warning"
+        (click)="editar()">
+
+    <input
+        type="button"
+        value="Remover"
+        *ngIf="!btnCadastro"        
+        class="btn btn-danger"
+        (click)="remover()">
+
+    <input
+        type="button"
+        value="Cancelar"
+        *ngIf="!btnCadastro"        
+        class="btn btn-secondary"
+        (click)="cancelar()">
+
+
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <th>id_entidade</th>
+            <th>Razão_Social</th>
+            <th>Setor</th>
+            <th>DRE</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let e of entidadesArray; index as i">
+            <td>{{e.identidade}}</td>
+            <td>{{e.razaosocial}}</td>
+            <td>{{e.setor}}</td>
+            <td>{{e.dre}}</td>
+            <td>
+                <button class="btn btn-success" (click)="selecionarEntidade(i)">
+                    Selecionar
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
