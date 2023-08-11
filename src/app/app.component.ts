@@ -9,9 +9,8 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'Controle Financeiro';
 
-// ...
+
 constructor(private router: Router) {}
   navigateTo(route: string) {
     this.router.navigate([route]);
-}
-}
+}}

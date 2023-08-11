@@ -7,7 +7,7 @@ import { RouterModule } from '@angular/router';
 
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { PrincipalEntidadeComponent } from './cadastrar/entidades.cadastrar';
+import { PrincipalEntidadeComponent } from './entidade/entidades.cadastrar';
 
 @NgModule({
   declarations: [

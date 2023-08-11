@@ -6,9 +6,9 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class EntidadesService {
+export class PatrimonioService {
 
-  private url: string = 'http://localhost:8090/controlefinanceiro/entidade';
+  private url: string = 'http://localhost:8090/controlefinanceiro/patrimonio';
   
   constructor(private http: HttpClient) { }
 
@@ -31,5 +31,4 @@ export class EntidadesService {
   public buscar(razaosocial: string): Observable<Entidade> {
     return this.http.get<Entidade>(this.url);
   }
-
 }
