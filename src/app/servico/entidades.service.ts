@@ -1,19 +1,23 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Entidade } from '../componentes/entidades.component';
+import { Entidade } from '../model/entidades.component';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class EntidadesService {
+export class EntidadesService {  
 
-  private url: string = 'http://localhost:8090/controlefinanceiro/entidade';
-  
-  constructor(private http: HttpClient) { }
+  private url: string = 'http://localhost:8090/controlefinanceiro/entidade';  
 
+  constructor(public http: HttpClient) { }
+    
   public selecionar(): Observable<Entidade[]> {
     return this.http.get<Entidade[]>(this.url);
+  }
+
+  public entidadeById(idEntidade: number): Observable<Entidade> {
+    return this.http.get<Entidade>(this.url + '/' + idEntidade).pipe();
   }
 
   public cadastrar(obj: Entidade): Observable<Entidade> {
@@ -30,6 +34,6 @@ export class EntidadesService {
   
   public buscar(razaosocial: string): Observable<Entidade> {
     return this.http.get<Entidade>(this.url);
-  }
+  } 
 
 }

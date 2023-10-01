@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Entidade } from '../componentes/entidades.component';
-import { Observable } from 'rxjs';
+import { Patrimonio } from '../model/patrimonio.component';
+import { Observable, take } from 'rxjs';
+import { Entidade } from '../model/entidades.component';
+
 
 @Injectable({
   providedIn: 'root'
@@ -12,23 +14,25 @@ export class PatrimonioService {
   
   constructor(private http: HttpClient) { }
 
-  public selecionar(): Observable<Entidade[]> {
-    return this.http.get<Entidade[]>(this.url);
+  public selecionar(): Observable<Patrimonio[]> {
+    return this.http.get<Patrimonio[]>(this.url);
   }
 
-  public cadastrar(obj: Entidade): Observable<Entidade> {
-    return this.http.post<Entidade>(this.url, obj);
+  public cadastrar(obj: Patrimonio): Observable<Patrimonio> {
+    return this.http.post<Patrimonio>(this.url, obj);
   }
 
-  public editar(obj: Entidade): Observable<Entidade> {
-    return this.http.put<Entidade>(this.url, obj);
+  public editar(obj: Patrimonio): Observable<Patrimonio> {
+    return this.http.put<Patrimonio>(this.url, obj);
   }
 
-  public remover(idEntidade: number): Observable<void> {
-    return this.http.delete<void>(this.url + '/' + idEntidade);
+  public remover(idPatrimonio: number): Observable<void> {
+    return this.http.delete<void>(this.url + '/' + idPatrimonio);
   }
   
-  public buscar(razaosocial: string): Observable<Entidade> {
-    return this.http.get<Entidade>(this.url);
+  public buscar(razaosocial: string): Observable<Patrimonio> {
+    return this.http.get<Patrimonio>(this.url);
   }
+
+  
 }

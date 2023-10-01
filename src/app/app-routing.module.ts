@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PrincipalEntidadeComponent } from './entidade/entidades.cadastrar';
-import { PrincipalPatrimonioComponent } from './patrimonio/patrimonio.cadastrar';
+import { PrincipalEntidadeComponent } from './faces/entidade/entidades.cadastrar';
+import { PrincipalPatrimonioComponent } from './faces/patrimonio/patrimonio.cadastrar';
 
 
 const routes: Routes = [

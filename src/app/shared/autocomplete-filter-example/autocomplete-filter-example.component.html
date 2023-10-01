@@ -1,0 +1,18 @@
+
+    <mat-form-field class="example-full-width">
+      <mat-label class="titulo" >Razão Social</mat-label>
+      <input class="entradas"
+             type="text"
+             placeholder="razao social"
+             aria-label="Number"
+             matInput
+             [formControl]="myControl"
+             [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option class="option" *ngFor="let option of filteredOptions | async" [value]="option">
+          {{option}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  
+  
