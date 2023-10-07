@@ -1,4 +1,3 @@
-
 import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {Observable} from 'rxjs';
@@ -12,7 +11,7 @@ import { Entidade } from './../../model/entidades.component';
 @Component({
   selector: 'autocomplete',
   templateUrl: 'autocomplete-filter-example.component.html',
-  styleUrls: [ /* '../../../../src/styles.css', */'autocomplete-filter-example.component.css'],
+  styleUrls: [ 'autocomplete-filter-example.component.css'],
   standalone: true,
   imports: [
     FormsModule,
@@ -27,9 +26,7 @@ import { Entidade } from './../../model/entidades.component';
 export class AutocompleteFilterExample implements OnInit {
     
   @Input() entidades: Entidade[] = [];
-  @Output() entidadeSelecionada = new EventEmitter<Entidade>();
- 
-  
+  @Output() entidadeSelecionada = new EventEmitter<Entidade>();  
 
   razoes: string[] = [];
   myControl = new FormControl('');
@@ -58,7 +55,7 @@ export class AutocompleteFilterExample implements OnInit {
     this.myControl.reset();
   
     // Emita um evento com uma nova instância de Entidade
-    this.entidadeSelecionada.emit(new Entidade());
+    this.entidadeSelecionada.emit(new Entidade()); //0,"", "", "", "", ""));
   }
 
   setRazaosocial(razaosocial: string) {

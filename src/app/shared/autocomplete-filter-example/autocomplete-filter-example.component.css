@@ -4,6 +4,12 @@
   height: 85px;
   margin: -10px 0px -20px 0px;
 }
+/*
+.example-full-width:hover {
+  background-color: inherit !important;
+}
+*/
+
 
 .titulo{
   font-size: 12px;

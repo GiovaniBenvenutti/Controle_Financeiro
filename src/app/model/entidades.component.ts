@@ -1,5 +1,4 @@
 
-
 export class Entidade {
   identidade!: number;
   razaosocial!: string;

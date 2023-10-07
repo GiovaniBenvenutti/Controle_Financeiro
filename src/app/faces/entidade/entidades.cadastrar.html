@@ -3,7 +3,7 @@
 <autocomplete [entisArray]="entidadesArray"></autocomplete>
 -->
 
-<form>
+<form class="formGeral">
     <input
         type="text"
         placeholder="Razão Social"
@@ -76,29 +76,32 @@
 
 </form>
 
-<table>
-    <thead>
-        <tr>
-            <th>id_entidade</th>
-            <th>Razão_Social</th>
-            <th>CLASSE</th>
-            <th>SUBCLASSE</th>
-            <th>TIPO</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let e of entidadesArray; index as i">
-            <td>{{e.identidade}}</td>
-            <td>{{e.razaosocial}}</td>
-            <td>{{e.classe}}</td>
-            <td>{{e.subclasse}}</td>
-            <td>{{e.tipo}}</td>
-            <td>
-                <button class="btn btn-success" (click)="selecionarEntidade(i)">
-                    Selecionar
-                </button>
-            </td>
-        </tr>
-    </tbody>
-</table>
+<div style="height: 450px; overflow: auto;">
+    <table>
+        <thead>
+            <tr>
+                <th>id_entidade</th>
+                <th>Razão_Social</th>
+                <th>CLASSE</th>
+                <th>SUBCLASSE</th>
+                <th>TIPO</th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let e of entidadesArray; index as i">
+                <td>{{e.identidade}}</td>
+                <td>{{e.razaosocial}}</td>
+                <td>{{e.classe}}</td>
+                <td>{{e.subclasse}}</td>
+                <td>{{e.tipo}}</td>
+                <td>
+                    <button class="btn btn-success" (click)="selecionarEntidade(i)">
+                        Selecionar
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

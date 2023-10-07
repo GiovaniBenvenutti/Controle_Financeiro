@@ -3,7 +3,7 @@
 <A routerLink="../">INICIO</A> <br>
 -->
 
-<form>
+<form class="formGeral">
     <div style="padding: 20px; display: inline-block">
         <autocomplete *ngIf="entidadesArray" [entidades]="entidadesArray"
             (entidadeSelecionada)="entidadeEscolhida($event)"></autocomplete>
@@ -50,31 +50,33 @@
     
 </form>
 
-<table>
-    <thead>
-        <tr>
-            <th>id_patrimonio</th>
-            <th>id_entidade</th>
-            <th>Razão_Social</th>
-            <th>levantamento</th>
-            <th>valor</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let p of PatrimonioArray; index as i">
-            <td>{{p.idpatrimonio}}</td>
-            <td>{{p.identidade}}</td>
-            <td>{{p.razaosocial}}</td>
-            <td>{{formatDate(p.levantamento)}}</td>
-            <td>{{ p.valor.toFixed(2) }}</td>
-            
-            <td>
-                <button class="btn btn-success" (click)="selecionarPatrimonio(i)">
-                    Selecionar
-                </button>
-            </td>
-        </tr>
-    </tbody>
-   
-</table>
+<div style="height: 450px; overflow: auto;">
+    <table>
+        <thead>
+            <tr>
+                <th>id_patrimonio</th>
+                <th>id_entidade</th>
+                <th>Razão_Social</th>
+                <th>levantamento</th>
+                <th>valor</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let p of PatrimonioArray; index as i">
+                <td>{{ p.idpatrimonio }}</td>
+                <td>{{ p.identidade }}</td>
+                <td>{{ achaRazao(p) }}</td>
+                <td>{{ formatDate(p.levantamento )}}</td>
+                <td>{{ p.valor.toFixed(2) }}</td>
+                
+                <td>
+                    <button class="btn btn-success" (click)="selecionarPatrimonio(i)">
+                        Selecionar
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    
+    </table>
+</div>

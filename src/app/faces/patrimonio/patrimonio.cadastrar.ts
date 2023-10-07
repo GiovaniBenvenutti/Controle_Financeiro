@@ -38,18 +38,20 @@ export class PrincipalPatrimonioComponent {
     );
   }
 
-  entidadeEscolhida(entidade: Entidade) {
-    this.pickedEntidade = entidade;
-
-    this.patrimonio.identidade = this.pickedEntidade.identidade;
-    this.patrimonio.razaosocial = this.pickedEntidade.razaosocial;
-    this.patrimonio.classe = this.pickedEntidade.classe;
-    this.patrimonio.subclasse = this.pickedEntidade.subclasse;
-    this.patrimonio.tipo = this.pickedEntidade.tipo;
-    this.patrimonio.infad = this.pickedEntidade.infad;
+  entidadeEscolhida(ent: Entidade) {
+    this.pickedEntidade = ent //this.entidadesArray.find(e => e.identidade === ent.identidade)!;
+    this.patrimonio.identidade = ent.identidade;
     
     // console.log(minhaEntidade);
   }
+
+  achaRazao(p: Patrimonio): string {
+    let razao: string = this.entidadesArray.find(e => e.identidade === p.identidade)?.razaosocial!;
+    return razao ;
+
+  }
+
+
 
   limparCampo() {
     this.autocomplete.limpar();
@@ -57,7 +59,7 @@ export class PrincipalPatrimonioComponent {
 
   buscar(){
     this.PatrimonioArray = this.PatrimonioArray
-    .filter(p => p.razaosocial.includes(this.autocomplete.getValor()));
+    .filter(p => this.pickedEntidade.razaosocial.includes(this.autocomplete.getValor()));
     this.limparCampo();
     this.buscando = true;    
   }
@@ -88,7 +90,7 @@ export class PrincipalPatrimonioComponent {
     this.patrimonio = this.PatrimonioArray[posicao];
     this.btnCadastro = false;
     this.tabela = false;
-    this.autocomplete.setRazaosocial(this.patrimonio.razaosocial);
+    this.autocomplete.setRazaosocial(this.pickedEntidade.razaosocial);
   }
 
   editar(): void {

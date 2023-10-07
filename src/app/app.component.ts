@@ -11,12 +11,20 @@ import { Entidade } from './model/entidades.component';
 export class AppComponent {
   title = 'Controle Financeiro';
 
-constructor(private router: Router) {}
-  navigateTo(route: string) {
-    this.router.navigate([route]);    
-}
+  constructor(private router: Router) {}
+  
+    navigateTo(route: string) {
+      this.router.navigate([route]);    
+  }
 
-entidadesArray: Entidade[] = [];
+  entidadesArray: Entidade[] = [];
+
+
+
+
+
+
+
 
 }
 
